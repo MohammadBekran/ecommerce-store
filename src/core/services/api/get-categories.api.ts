@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { ICategory } from "@/core/types";
+import type { ICategory } from "@/core/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/categories`;
 
