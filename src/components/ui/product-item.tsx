@@ -2,15 +2,24 @@
 
 import { Expand, ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import type { IProduct } from "@/core/types";
 
 const ProductItem = ({ data }: { data: IProduct }) => {
-  console.log(data);
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/products/${data?.id}`);
+  };
+
   return (
-    <div className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+    <div
+      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
+      onClick={handleClick}
+    >
       {/* Images & Product Actions */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
