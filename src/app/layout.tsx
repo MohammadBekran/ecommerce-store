@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.className} antialiased`}>
+        <Header />
         {children}
         <Footer />
       </body>
