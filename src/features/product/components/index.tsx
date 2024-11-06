@@ -1,4 +1,5 @@
 import Gallery from "@/features/product/components/gallery";
+import ProductInformation from "@/features/product/components/product-information";
 
 import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
@@ -17,7 +18,7 @@ const Product = ({ product, suggestedProducts }: IProductProps) => {
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <Gallery images={product?.images} />
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-              <div>Information</div>
+              <ProductInformation product={product} />
             </div>
           </div>
           <hr className="my-10" />
