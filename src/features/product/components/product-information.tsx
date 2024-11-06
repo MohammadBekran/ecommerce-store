@@ -11,9 +11,9 @@ const ProductInformation = ({ product }: { product?: IProduct }) => {
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{product?.name}</h1>
       <div className="mt-3 flex justify-between items-end">
-        <p className="text-2xl text-gray-900">
+        <div className="text-2xl text-gray-900">
           <Currency value={product?.price} />
-        </p>
+        </div>
       </div>
       <hr className="my-4" />
       <div className="space-y-6">

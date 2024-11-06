@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
+import ModalProvider from "@/components/partials/providers/modal-provider";
+import ToastProvider from "@/components/partials/providers/toast-provider";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 
@@ -24,6 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.className} antialiased`}>
+        <ModalProvider />
+        <ToastProvider />
         <Header />
         {children}
         <Footer />
