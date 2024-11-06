@@ -1,4 +1,5 @@
 import Filter from "@/features/category/components/filter";
+import MobileFilters from "@/features/category/components/mobile-filters";
 
 import Billboard from "@/components/billboard";
 import Container from "@/components/ui/container";
@@ -20,6 +21,7 @@ const Category = ({ products, colors, sizes, category }: ICategoryProps) => {
         <Billboard data={category?.billboard} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
+            <MobileFilters sizes={sizes} colors={colors} />
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="Sizes" data={sizes} />
               <Filter valueKey="colorId" name="Colors" data={colors} />
