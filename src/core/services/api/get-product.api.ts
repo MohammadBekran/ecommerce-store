@@ -6,7 +6,6 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
 const getProduct = async (id: string) => {
   try {
-    console.log(id);
     const response = await axios.get<IProduct>(`${URL}/${id}`);
 
     return response.data;

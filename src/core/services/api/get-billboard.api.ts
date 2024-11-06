@@ -6,7 +6,6 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}/billboards`;
 
 const getBillboard = async (id: string) => {
   try {
-    console.log(id);
     const response = await axios.get<IBillboard>(`${URL}/${id}`);
 
     return response.data;
