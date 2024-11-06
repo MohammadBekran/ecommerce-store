@@ -4,9 +4,16 @@ import { ShoppingCart } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
+import useCart from "@/core/hooks/use-cart.hooks";
 import { IProduct } from "@/core/types";
 
 const ProductInformation = ({ product }: { product?: IProduct }) => {
+  const cart = useCart();
+
+  const onAddToCart = () => {
+    cart.addItem(product!);
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{product?.name}</h1>
@@ -30,7 +37,10 @@ const ProductInformation = ({ product }: { product?: IProduct }) => {
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-6">
-        <Button className="flex items-center gap-x-2 rounded-full">
+        <Button
+          className="flex items-center gap-x-2 rounded-full"
+          onClick={onAddToCart}
+        >
           Add To Cart <ShoppingCart />
         </Button>
       </div>

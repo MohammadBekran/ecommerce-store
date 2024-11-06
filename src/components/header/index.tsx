@@ -1,8 +1,7 @@
-import { ShoppingBag } from "lucide-react";
 import Link from "next/link";
 
+import CartButton from "@/components/header/cart-button";
 import Navbar from "@/components/header/navbar";
-import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import getCategories from "@/core/services/api/get-categories.api";
 
@@ -20,10 +19,7 @@ const Header = async () => {
             <Navbar data={categories ?? []} />
           </div>
           <div>
-            <Button className="flex items-center rounded-full bg-black px-4 py-2">
-              <ShoppingBag size={20} color="white" />
-              <span className="text-sm font-medium text-white">0</span>
-            </Button>
+            <CartButton />
           </div>
         </div>
       </Container>

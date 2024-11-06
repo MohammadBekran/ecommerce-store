@@ -9,15 +9,23 @@ import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import type { IProduct } from "@/core/types";
 import usePreviewModal from "@/core/hooks/use-preview-modal.hooks";
+import useCart from "@/core/hooks/use-cart.hooks";
 
 const ProductItem = ({ data }: { data: IProduct }) => {
   const router = useRouter();
   const previewModal = usePreviewModal();
+  const cart = useCart();
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
 
     previewModal.onOpen(data);
+  };
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+
+    cart.addItem(data);
   };
 
   const handleClick = () => {
@@ -48,6 +56,7 @@ const ProductItem = ({ data }: { data: IProduct }) => {
             <Button
               size="icon"
               className="rounded-full bg-white hover:bg-white"
+              onClick={onAddToCart}
             >
               <ShoppingCart size={20} className="text-gray-600" />
             </Button>
