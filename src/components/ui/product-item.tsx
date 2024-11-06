@@ -3,13 +3,22 @@
 import { Expand, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { MouseEventHandler } from "react";
 
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import type { IProduct } from "@/core/types";
+import usePreviewModal from "@/core/hooks/use-preview-modal.hooks";
 
 const ProductItem = ({ data }: { data: IProduct }) => {
   const router = useRouter();
+  const previewModal = usePreviewModal();
+
+  const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+
+    previewModal.onOpen(data);
+  };
 
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
@@ -20,7 +29,6 @@ const ProductItem = ({ data }: { data: IProduct }) => {
       className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
       onClick={handleClick}
     >
-      {/* Images & Product Actions */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           src={data?.images?.[0]?.url}
@@ -33,6 +41,7 @@ const ProductItem = ({ data }: { data: IProduct }) => {
             <Button
               size="icon"
               className="rounded-full bg-white hover:bg-white"
+              onClick={onPreview}
             >
               <Expand size={20} className="text-gray-600" />
             </Button>
