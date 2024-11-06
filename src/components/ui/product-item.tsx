@@ -12,7 +12,7 @@ const ProductItem = ({ data }: { data: IProduct }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/products/${data?.id}`);
+    router.push(`/product/${data?.id}`);
   };
 
   return (
