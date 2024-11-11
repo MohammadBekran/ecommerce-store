@@ -12,7 +12,7 @@ import { checkoutFormSchema } from "@/features/cart/core/validations";
 
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/ui/modal";
-import { toast } from "@/lib/utils";
+import { toast } from "@/core/utils";
 
 interface ICheckoutModalProps {
   open: boolean;

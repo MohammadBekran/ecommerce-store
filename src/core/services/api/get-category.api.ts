@@ -1,12 +1,10 @@
-import axios from "axios";
-
+import Http from "@/core/services/interceptor";
 import type { ICategory } from "@/core/types";
-
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/categories`;
 
 const getCategory = async (id: string) => {
   try {
-    const response = await axios.get<ICategory>(`${URL}/${id}`);
+    const Http = await ();
+    const response = await Http.get<ICategory>(`/categories/${id}`);
 
     return response.data;
   } catch (error) {

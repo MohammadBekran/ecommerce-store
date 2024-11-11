@@ -1,12 +1,9 @@
-import axios from "axios";
-
+import Http from "@/core/services/interceptor";
 import type { IProduct } from "@/core/types";
-
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
 const getProduct = async (id: string) => {
   try {
-    const response = await axios.get<IProduct>(`${URL}/${id}`);
+    const response = await Http.get<IProduct>(`/products/${id}`);
 
     return response.data;
   } catch (error) {

@@ -1,9 +1,7 @@
-import axios from "axios";
 import qs from "query-string";
 
+import Http from "@/core/services/interceptor";
 import type { IProduct } from "@/core/types";
-
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
 interface IQuery {
   categoryId?: string;
@@ -17,7 +15,7 @@ const getProducts = async (query: IQuery) => {
     const { categoryId, colorId, sizeId, isFeatured } = query;
 
     const url = qs.stringifyUrl({
-      url: URL,
+      url: `${process.env.NEXT_PUBLIC_API_URL}/products`,
       query: {
         categoryId,
         colorId,
@@ -25,7 +23,7 @@ const getProducts = async (query: IQuery) => {
         isFeatured,
       },
     });
-    const response = await axios.get<IProduct[]>(url);
+    const response = await Http.get<IProduct[]>(url);
 
     return response.data;
   } catch (error) {

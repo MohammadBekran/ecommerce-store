@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import type { ICategory } from "@/core/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 const Navbar = ({ data }: { data: ICategory[] }) => {
   const pathname = usePathname();

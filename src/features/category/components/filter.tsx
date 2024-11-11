@@ -5,7 +5,7 @@ import qs from "query-string";
 
 import { IColor, ISize } from "@/core/types";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/core/utils";
 
 interface IFilterProps {
   data?: (ISize | IColor)[];

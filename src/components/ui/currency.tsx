@@ -1,4 +1,4 @@
-import { priceFormatter } from "@/lib/utils";
+import { priceFormatter } from "@/core/utils";
 
 const Currency = ({ value }: { value?: string | number }) => {
   return (

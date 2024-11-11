@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 import { IProduct } from "@/core/types";
-import { toast } from "@/lib/utils";
+import { toast } from "@/core/utils";
 
 interface ICartStore {
   items: IProduct[];

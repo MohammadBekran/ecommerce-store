@@ -1,12 +1,9 @@
-import axios from "axios";
-
+import Http from "@/core/services/interceptor";
 import type { ISize } from "@/core/types";
-
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/sizes`;
 
 const getSizes = async () => {
   try {
-    const response = await axios.get<ISize[]>(URL);
+    const response = await Http.get<ISize[]>("/sizes");
 
     return response.data;
   } catch (error) {

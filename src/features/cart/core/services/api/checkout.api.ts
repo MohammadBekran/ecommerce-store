@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { TOrderData } from "@/features/cart/core/types";
-import { toast } from "@/lib/utils";
+import { toast } from "@/core/utils";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/orders`;
 

@@ -2,6 +2,16 @@ import { PropsWithChildren } from "react";
 
 type TPropsWithChildren = PropsWithChildren;
 
+interface IStore {
+  id: string;
+  name: string;
+  Billboard: IBillboard[];
+  Category: ICategory[];
+  Size: ISize[];
+  Color: IColor[];
+  Product: IProduct[];
+}
+
 interface IBillboard {
   id: string;
   label: string;
@@ -45,6 +55,7 @@ interface IColor {
 
 export type {
   TPropsWithChildren,
+  IStore,
   IBillboard,
   ICategory,
   IProduct,
