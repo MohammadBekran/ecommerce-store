@@ -72,3 +72,8 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* Clerk */
+.cl-rootBox {
+  @apply w-full h-full flex justify-center items-center;
+}

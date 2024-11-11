@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-// import { checkoutAPI } from "@/features/cart/core/services/api";
 import CheckoutModal from "@/features/cart/components/checkout-modal";
 
 import { Button } from "@/components/ui/button";

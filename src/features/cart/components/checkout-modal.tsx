@@ -1,7 +1,8 @@
 "use client";
 
+import { useUser } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
@@ -23,18 +24,21 @@ interface ICheckoutModalProps {
 const CheckoutModal = ({ open, productIds, onClose }: ICheckoutModalProps) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const { user } = useUser();
   const { control, handleSubmit } = useForm<TCheckoutFormData>({
     resolver: zodResolver(checkoutFormSchema),
   });
 
   const onSubmit = (data: TCheckoutFormData) => {
+    if (!user) redirect("/sign-in");
+
     startTransition(() =>
       checkoutAPI(
         {
           ...data,
           isPaid: false,
           productIds,
-          userId: "", // TODO: Add user id to this property
+          userId: user.id,
         },
         () => {
           toast.success("Checkout has been completed.");

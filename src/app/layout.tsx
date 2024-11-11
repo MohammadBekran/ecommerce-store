@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
-import ModalProvider from "@/components/partials/providers/modal-provider";
-import ToastProvider from "@/components/partials/providers/toast-provider";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import ClerkProvider from "@/components/partials/providers/clerk-provider";
+import ModalProvider from "@/components/partials/providers/modal-provider";
+import ToastProvider from "@/components/partials/providers/toast-provider";
 
 import "./globals.css";
 
@@ -24,14 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${urbanist.className} antialiased`}>
-        <ModalProvider />
-        <ToastProvider />
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${urbanist.className} antialiased`}>
+          <ModalProvider />
+          <ToastProvider />
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

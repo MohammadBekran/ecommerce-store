@@ -12,7 +12,8 @@ const checkoutAPI = async (data: TOrderData, onSuccess: () => void) => {
     onSuccess();
 
     return response.data;
-  } catch {
+  } catch (error) {
+    console.log(error);
     toast.error("Something went wrong.");
   }
 };
