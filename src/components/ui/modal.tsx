@@ -10,14 +10,19 @@ import {
 import { X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface IModalProps {
   open: boolean;
   onClose: () => void;
+  classes?: {
+    dialogPanel: string;
+    container: string;
+  };
   children: React.ReactNode;
 }
 
-const Modal = ({ open, onClose, children }: IModalProps) => {
+const Modal = ({ open, onClose, classes, children }: IModalProps) => {
   return (
     <Transition show={open} appear as={Fragment}>
       <Dialog className="relative z-10" onClose={onClose}>
@@ -33,8 +38,18 @@ const Modal = ({ open, onClose, children }: IModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle">
-                <div className="relative w-full overflow-hidden flex items-center px-4 pb-8 pt-14 shadow-2xl bg-white sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+              <DialogPanel
+                className={cn(
+                  "w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle",
+                  classes?.dialogPanel ?? ""
+                )}
+              >
+                <div
+                  className={cn(
+                    "relative w-full overflow-hidden flex items-center px-4 pb-8 pt-14 shadow-2xl bg-white sm:px-6 sm:pt-8 md:p-6 lg:p-8",
+                    classes?.container ?? ""
+                  )}
+                >
                   <div className="absolute right-4 top-4">
                     <Button
                       variant="ghost"

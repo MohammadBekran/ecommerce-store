@@ -1,47 +1,38 @@
 "use client";
+import { useState } from "react";
 
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-
-import { checkoutAPI } from "@/features/cart/core/services/api";
+// import { checkoutAPI } from "@/features/cart/core/services/api";
+import CheckoutModal from "@/features/cart/components/checkout-modal";
 
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/core/hooks/use-cart.hooks";
-import { toast } from "@/lib/utils";
 
 const Summary = () => {
-  const searchParams = useSearchParams();
-  const items = useCart((state) => state.items);
-  const removeAll = useCart((state) => state.removeAll);
+  const [open, setOpen] = useState(false);
+  const cartItems = useCart((state) => state.items);
 
-  useEffect(() => {
-    const successSearchParam = searchParams.get("success");
-    const cancelSearchParam = searchParams.get("canceled");
+  const onOpenCheckoutModal = () => setOpen(true);
+  const onCloseCheckoutModal = () => setOpen(false);
 
-    if (successSearchParam) {
-      toast.success("Payment completed.");
-      removeAll();
-    }
-
-    if (cancelSearchParam) toast.error("Something went wrong");
-  }, [searchParams, removeAll]);
-
-  const totalPrice = items.reduce(
+  const totalPrice = cartItems.reduce(
     (total, item) => total + Number(item.price),
     0
   );
 
-  const onCheckout = async () => {
-    const productIds = items.map((item) => item.id);
+  const productIds: string[] = [];
 
-    const response = await checkoutAPI({ productIds });
-
-    window.localStorage = response.data.url;
-  };
+  cartItems.forEach((product) => {
+    productIds.push(product.id);
+  });
 
   return (
     <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+      <CheckoutModal
+        open={open}
+        onClose={onCloseCheckoutModal}
+        productIds={productIds}
+      />
       <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
       <div className="mt-6 space-y-4">
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
@@ -49,7 +40,7 @@ const Summary = () => {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button className="w-full mt-6" onClick={onCheckout}>
+      <Button className="w-full mt-6" onClick={onOpenCheckoutModal}>
         Checkout
       </Button>
     </div>

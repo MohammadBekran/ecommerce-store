@@ -25,7 +25,6 @@ const getProducts = async (query: IQuery) => {
         isFeatured,
       },
     });
-    console.log(url);
     const response = await axios.get<IProduct[]>(url);
 
     return response.data;

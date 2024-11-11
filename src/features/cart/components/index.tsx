@@ -3,7 +3,7 @@
 import CartItem from "@/features/cart/components/cart-item";
 import Summary from "@/features/cart/components/summary";
 
-import Container from "@/components/ui/container";
+import MainContainer from "@/components/partials/containers/main-container";
 import useCart from "@/core/hooks/use-cart.hooks";
 
 const Cart = () => {
@@ -11,7 +11,7 @@ const Cart = () => {
 
   return (
     <div className="bg-white">
-      <Container>
+      <MainContainer>
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-black">Shopping Cart</h1>
           <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
@@ -28,7 +28,7 @@ const Cart = () => {
             <Summary />
           </div>
         </div>
-      </Container>
+      </MainContainer>
     </div>
   );
 };

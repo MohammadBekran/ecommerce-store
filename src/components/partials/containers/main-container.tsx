@@ -1,7 +1,7 @@
 import { TPropsWithChildren } from "@/core/types";
 
-const Container = ({ children }: TPropsWithChildren) => {
+const MainContainer = ({ children }: TPropsWithChildren) => {
   return <div className="mx-auto max-w-7xl">{children}</div>;
 };
 
-export default Container;
+export default MainContainer;
