@@ -1,9 +1,9 @@
 import Gallery from "@/features/product/components/gallery";
 import ProductInformation from "@/features/product/components/product-information";
+import type IProduct from "@/features/product/core/types";
 
-import ProductList from "@/components/product-list";
 import MainContainer from "@/components/partials/containers/main-container";
-import { IProduct } from "@/core/types";
+import ProductList from "@/components/product-list";
 
 interface IProductProps {
   product: IProduct | undefined;

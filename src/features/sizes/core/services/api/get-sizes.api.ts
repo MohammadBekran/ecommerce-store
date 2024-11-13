@@ -1,14 +1,15 @@
+import type ISize from "@/features/sizes/core/types";
+
 import Http from "@/core/services/interceptor";
-import type { IStore } from "@/core/types";
 import { toast } from "@/core/utils";
 
-const getStores = async () => {
+const getSizes = async () => {
   try {
-    const response = await Http.get<IStore[]>("/stores");
+    const response = await Http.get<ISize[]>("/sizes");
 
     return response.data;
   } catch {
     toast.error("Something went wrong.");
   }
 };
-export default getStores;
+export default getSizes;

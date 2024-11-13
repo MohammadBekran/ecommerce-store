@@ -1,7 +1,9 @@
+import IBillboard from "@/features/billboards/core/types";
+import type IProduct from "@/features/product/core/types";
+
 import Billboard from "@/components/billboard";
 import MainContainer from "@/components/partials/containers/main-container";
 import ProductList from "@/components/product-list";
-import { IBillboard, IProduct } from "@/core/types";
 
 interface IHomeProps {
   billboard?: IBillboard;

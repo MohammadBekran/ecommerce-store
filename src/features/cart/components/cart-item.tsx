@@ -1,10 +1,11 @@
-import Image from "next/image";
 import { X } from "lucide-react";
+import Image from "next/image";
 
-import Currency from "@/components/ui/currency";
+import type IProduct from "@/features/product/core/types";
+
 import { Button } from "@/components/ui/button";
+import Currency from "@/components/ui/currency";
 import useCart from "@/core/hooks/use-cart.hooks";
-import type { IProduct } from "@/core/types";
 
 const CartItem = ({ data }: { data: IProduct }) => {
   const cart = useCart();

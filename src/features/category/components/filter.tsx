@@ -3,7 +3,9 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 
-import { IColor, ISize } from "@/core/types";
+import type IColor from "@/features/colors/core/types";
+import type ISize from "@/features/sizes/core/types";
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/core/utils";
 

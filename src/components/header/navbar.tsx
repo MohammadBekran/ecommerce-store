@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import type { ICategory } from "@/core/types";
+import type ICategory from "@/features/category/core/types";
+
 import { cn } from "@/core/utils";
 
 const Navbar = ({ data }: { data: ICategory[] }) => {

@@ -1,5 +1,6 @@
+import type IBillboard from "@/features/billboards/core/types";
+
 import Http from "@/core/services/interceptor";
-import type { IBillboard } from "@/core/types";
 import { toast } from "@/core/utils";
 
 const getBillboards = async () => {

@@ -5,11 +5,12 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MouseEventHandler } from "react";
 
+import type IProduct from "@/features/product/core/types";
+
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
-import type { IProduct } from "@/core/types";
-import usePreviewModal from "@/core/hooks/use-preview-modal.hooks";
 import useCart from "@/core/hooks/use-cart.hooks";
+import usePreviewModal from "@/core/hooks/use-preview-modal.hooks";
 
 const ProductItem = ({ data }: { data: IProduct }) => {
   const router = useRouter();

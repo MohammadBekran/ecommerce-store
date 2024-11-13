@@ -1,6 +1,7 @@
+import type IProduct from "@/features/product/core/types";
+
 import NoResults from "@/components/ui/no-results";
 import ProductItem from "@/components/ui/product-item";
-import type { IProduct } from "@/core/types";
 
 interface IProductListProps {
   title: string;

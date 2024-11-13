@@ -1,7 +1,8 @@
 import qs from "query-string";
 
+import type IProduct from "@/features/product/core/types";
+
 import Http from "@/core/services/interceptor";
-import type { IProduct } from "@/core/types";
 import { toast } from "@/core/utils";
 
 interface IQuery {

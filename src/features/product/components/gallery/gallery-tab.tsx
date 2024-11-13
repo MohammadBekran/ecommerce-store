@@ -1,8 +1,9 @@
-import Image from "next/image";
 import { Tab } from "@headlessui/react";
+import Image from "next/image";
+
+import type IImage from "@/features/images/core/types";
 
 import { cn } from "@/core/utils";
-import { IImage } from "@/core/types";
 
 const GalleryTab = ({ image }: { image: IImage }) => {
   return (

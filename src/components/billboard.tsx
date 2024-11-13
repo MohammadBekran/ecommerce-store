@@ -1,4 +1,4 @@
-import type { IBillboard } from "@/core/types";
+import type IBillboard from "@/features/billboards/core/types";
 
 const Billboard = ({ data }: { data: IBillboard | undefined }) => {
   return (

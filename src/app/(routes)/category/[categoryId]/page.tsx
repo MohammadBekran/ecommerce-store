@@ -1,9 +1,8 @@
 import Category from "@/features/category/components";
-
-import getColors from "@/core/services/api/get-colors.api";
-import getProducts from "@/core/services/api/get-products.api";
-import getSizes from "@/core/services/api/get-sizes.api";
-import getCategory from "@/core/services/api/get-category.api";
+import { getCategory } from "@/features/category/core/services/api";
+import getColors from "@/features/colors/core/services/api";
+import { getProducts } from "@/features/product/core/services/api";
+import getSizes from "@/features/sizes/core/services/api";
 
 interface ICategoryPageProps {
   params: Promise<{

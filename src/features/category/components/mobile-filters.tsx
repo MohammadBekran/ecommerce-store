@@ -5,9 +5,10 @@ import { Plus, X } from "lucide-react";
 import { useState } from "react";
 
 import Filter from "@/features/category/components/filter";
+import type IColor from "@/features/colors/core/types";
+import type ISize from "@/features/sizes/core/types";
 
 import { Button } from "@/components/ui/button";
-import { IColor, ISize } from "@/core/types";
 
 interface IMobileFiltersProps {
   sizes?: ISize[];
