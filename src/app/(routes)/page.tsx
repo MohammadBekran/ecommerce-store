@@ -9,8 +9,6 @@ const HomePage = async () => {
   });
   const billboard = await getBillboards();
 
-  console.log(billboard);
-
   return <Home billboard={billboard?.[0]} products={products} />;
 };
 

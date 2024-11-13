@@ -20,9 +20,11 @@ const Summary = () => {
   );
 
   const productIds: string[] = [];
+  let storeId = "";
 
   cartItems.forEach((product) => {
     productIds.push(product.id);
+    storeId = product.storeId;
   });
 
   return (
@@ -31,6 +33,7 @@ const Summary = () => {
         open={open}
         onClose={onCloseCheckoutModal}
         productIds={productIds}
+        storeId={storeId}
       />
       <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
       <div className="mt-6 space-y-4">

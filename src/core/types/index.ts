@@ -26,6 +26,7 @@ interface ICategory {
 
 interface IProduct {
   id: string;
+  storeId: string;
   name: string;
   price: string;
   isFeatured: boolean;

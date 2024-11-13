@@ -9,9 +9,6 @@ interface IHomeProps {
 }
 
 const Home = ({ billboard, products }: IHomeProps) => {
-  console.log("Hello world");
-  console.log("billboard", billboard);
-
   return (
     <MainContainer>
       <div className="space-y-10 pb-10">
