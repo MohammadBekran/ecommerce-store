@@ -7,6 +7,8 @@ import type ICategory from "@/features/category/core/types";
 
 import { cn } from "@/core/utils";
 
+export const revalidate = 0;
+
 const Navbar = ({ data }: { data: ICategory[] }) => {
   const pathname = usePathname();
 
