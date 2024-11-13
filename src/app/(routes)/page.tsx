@@ -1,15 +1,12 @@
+import getBillboards from "@/features/billboards/core/services/api";
 import Home from "@/features/home/components";
-
-import getBillboards from "@/core/services/api/get-billboards.api";
-import getProducts from "@/core/services/api/get-products.api";
+import { getProducts } from "@/features/product/core/services/api";
 
 const HomePage = async () => {
   const products = await getProducts({
     isFeatured: true,
   });
   const billboard = await getBillboards();
-
-  console.log(billboard);
 
   return <Home billboard={billboard?.[0]} products={products} />;
 };

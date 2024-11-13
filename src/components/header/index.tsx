@@ -1,9 +1,10 @@
 import Link from "next/link";
 
+import { getCategories } from "@/features/category/core/services/api";
+
 import CartButton from "@/components/header/cart-button";
 import Navbar from "@/components/header/navbar";
 import MainContainer from "@/components/partials/containers/main-container";
-import getCategories from "@/core/services/api/get-categories.api";
 
 const Header = async () => {
   const categories = await getCategories();

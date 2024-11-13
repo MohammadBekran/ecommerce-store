@@ -6,25 +6,33 @@ import { redirect, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
-import CheckoutFieldBox from "@/features/cart/components/checkout-field-box";
+import CheckoutFieldBox from "@/features/cart/components/cart-content/checkout-field-box";
 import { checkoutAPI } from "@/features/cart/core/services/api";
 import type { TCheckoutFormData } from "@/features/cart/core/types";
 import { checkoutFormSchema } from "@/features/cart/core/validations";
 
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/ui/modal";
+import useCart from "@/core/hooks/use-cart.hooks";
 import { toast } from "@/core/utils";
 
 interface ICheckoutModalProps {
   open: boolean;
+  storeId: string;
   productIds: string[];
   onClose: () => void;
 }
 
-const CheckoutModal = ({ open, productIds, onClose }: ICheckoutModalProps) => {
+const CheckoutModal = ({
+  open,
+  storeId,
+  productIds,
+  onClose,
+}: ICheckoutModalProps) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const { user } = useUser();
+  const removeAllItems = useCart((state) => state.removeAll);
   const { control, handleSubmit } = useForm<TCheckoutFormData>({
     resolver: zodResolver(checkoutFormSchema),
   });
@@ -34,6 +42,7 @@ const CheckoutModal = ({ open, productIds, onClose }: ICheckoutModalProps) => {
 
     startTransition(() =>
       checkoutAPI(
+        storeId,
         {
           ...data,
           isPaid: false,
@@ -41,6 +50,7 @@ const CheckoutModal = ({ open, productIds, onClose }: ICheckoutModalProps) => {
           userId: user.id,
         },
         () => {
+          removeAllItems();
           toast.success("Checkout has been completed.");
           router.push("/");
         }

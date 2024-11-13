@@ -1,18 +1,17 @@
 import Category from "@/features/category/components";
-
-import getColors from "@/core/services/api/get-colors.api";
-import getProducts from "@/core/services/api/get-products.api";
-import getSizes from "@/core/services/api/get-sizes.api";
-import getCategory from "@/core/services/api/get-category.api";
+import { getCategory } from "@/features/category/core/services/api";
+import getColors from "@/features/colors/core/services/api";
+import { getProducts } from "@/features/product/core/services/api";
+import getSizes from "@/features/sizes/core/services/api";
 
 interface ICategoryPageProps {
-  params: {
+  params: Promise<{
     categoryId: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     colorId: string;
     sizeId: string;
-  };
+  }>;
 }
 
 const CategoryPage = async ({ params, searchParams }: ICategoryPageProps) => {
@@ -26,7 +25,7 @@ const CategoryPage = async ({ params, searchParams }: ICategoryPageProps) => {
   });
   const sizes = await getSizes();
   const colors = await getColors();
-  const category = await getCategory(params.categoryId);
+  const category = await getCategory(categoryId);
 
   return (
     <Category

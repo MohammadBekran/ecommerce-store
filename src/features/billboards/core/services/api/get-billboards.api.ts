@@ -1,15 +1,15 @@
+import type IBillboard from "@/features/billboards/core/types";
+
 import Http from "@/core/services/interceptor";
-import type { IBillboard } from "@/core/types";
+import { toast } from "@/core/utils";
 
 const getBillboards = async () => {
   try {
     const response = await Http.get<IBillboard[]>("/billboards");
 
-    console.log(response.data);
-
     return response.data;
-  } catch (error) {
-    console.log(error);
+  } catch {
+    toast.error("Something went wrong.");
   }
 };
 export default getBillboards;

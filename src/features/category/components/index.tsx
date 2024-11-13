@@ -1,9 +1,12 @@
 import Filter from "@/features/category/components/filter";
 import MobileFilters from "@/features/category/components/mobile-filters";
+import type ICategory from "@/features/category/core/types";
+import type IColor from "@/features/colors/core/types";
+import type IProduct from "@/features/product/core/types";
+import type ISize from "@/features/sizes/core/types";
 
 import Billboard from "@/components/billboard";
 import MainContainer from "@/components/partials/containers/main-container";
-import { ICategory, IColor, IProduct, ISize } from "@/core/types";
 import NoResults from "@/components/ui/no-results";
 import ProductItem from "@/components/ui/product-item";
 

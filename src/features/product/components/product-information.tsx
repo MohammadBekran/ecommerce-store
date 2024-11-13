@@ -2,10 +2,11 @@
 
 import { ShoppingCart } from "lucide-react";
 
+import type IProduct from "@/features/product/core/types";
+
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/core/hooks/use-cart.hooks";
-import { IProduct } from "@/core/types";
 
 const ProductInformation = ({ product }: { product?: IProduct }) => {
   const cart = useCart();

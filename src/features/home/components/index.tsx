@@ -1,7 +1,9 @@
+import IBillboard from "@/features/billboards/core/types";
+import type IProduct from "@/features/product/core/types";
+
 import Billboard from "@/components/billboard";
 import MainContainer from "@/components/partials/containers/main-container";
 import ProductList from "@/components/product-list";
-import { IBillboard, IProduct } from "@/core/types";
 
 interface IHomeProps {
   billboard?: IBillboard;
@@ -9,9 +11,6 @@ interface IHomeProps {
 }
 
 const Home = ({ billboard, products }: IHomeProps) => {
-  console.log("Hello world");
-  console.log("billboard", billboard);
-
   return (
     <MainContainer>
       <div className="space-y-10 pb-10">

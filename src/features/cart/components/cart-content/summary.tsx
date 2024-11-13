@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import CheckoutModal from "@/features/cart/components/checkout-modal";
+import CheckoutModal from "@/features/cart/components/cart-content/checkout-modal";
 
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
@@ -20,9 +20,11 @@ const Summary = () => {
   );
 
   const productIds: string[] = [];
+  let storeId = "";
 
   cartItems.forEach((product) => {
     productIds.push(product.id);
+    storeId = product.storeId;
   });
 
   return (
@@ -31,6 +33,7 @@ const Summary = () => {
         open={open}
         onClose={onCloseCheckoutModal}
         productIds={productIds}
+        storeId={storeId}
       />
       <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
       <div className="mt-6 space-y-4">

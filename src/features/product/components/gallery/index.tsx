@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import Image from "next/image";
 
+import type IImage from "@/features/images/core/types";
 import GalleryTab from "@/features/product/components/gallery/gallery-tab";
-
-import { IImage } from "@/core/types";
 
 const Gallery = ({ images }: { images?: IImage[] }) => {
   return (

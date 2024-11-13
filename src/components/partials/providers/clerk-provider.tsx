@@ -1,6 +1,6 @@
 import { ClerkProvider as ClerkPackageProvider } from "@clerk/nextjs";
 
-import { TPropsWithChildren } from "@/core/types";
+import type TPropsWithChildren from "@/core/types";
 
 const ClerkProvider = ({ children }: TPropsWithChildren) => {
   return <ClerkPackageProvider>{children}</ClerkPackageProvider>;

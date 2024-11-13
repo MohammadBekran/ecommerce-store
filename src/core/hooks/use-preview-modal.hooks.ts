@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { IProduct } from "@/core/types";
+import type IProduct from "@/features/product/core/types";
 
 interface IPreviewModalProps {
   isOpen: boolean;
