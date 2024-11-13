@@ -6,7 +6,7 @@ import { redirect, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
-import CheckoutFieldBox from "@/features/cart/components/checkout-field-box";
+import CheckoutFieldBox from "@/features/cart/components/cart-content/checkout-field-box";
 import { checkoutAPI } from "@/features/cart/core/services/api";
 import type { TCheckoutFormData } from "@/features/cart/core/types";
 import { checkoutFormSchema } from "@/features/cart/core/validations";
