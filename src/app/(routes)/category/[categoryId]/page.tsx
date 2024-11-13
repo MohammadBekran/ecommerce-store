@@ -6,13 +6,13 @@ import getSizes from "@/core/services/api/get-sizes.api";
 import getCategory from "@/core/services/api/get-category.api";
 
 interface ICategoryPageProps {
-  params: {
+  params: Promise<{
     categoryId: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     colorId: string;
     sizeId: string;
-  };
+  }>;
 }
 
 const CategoryPage = async ({ params, searchParams }: ICategoryPageProps) => {
@@ -26,7 +26,7 @@ const CategoryPage = async ({ params, searchParams }: ICategoryPageProps) => {
   });
   const sizes = await getSizes();
   const colors = await getColors();
-  const category = await getCategory(params.categoryId);
+  const category = await getCategory(categoryId);
 
   return (
     <Category
