@@ -42,7 +42,11 @@ const Summary = () => {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button className="w-full mt-6" onClick={onOpenCheckoutModal}>
+      <Button
+        className="w-full mt-6"
+        onClick={onOpenCheckoutModal}
+        disabled={!cartItems.length}
+      >
         Checkout
       </Button>
     </div>
