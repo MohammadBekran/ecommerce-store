@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 import ICategory from "@/features/category/core/types";
 
+import ModeToggle from "@/components/header/mode-toggle";
 import {
   Sheet,
   SheetContent,
@@ -14,7 +15,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn, renderCategoryRoutes } from "@/core/utils";
-import ModeToggle from "./mode-toggle";
 
 const MobileNavbar = ({ data }: { data: ICategory[] }) => {
   const pathname = usePathname();
@@ -39,8 +39,8 @@ const MobileNavbar = ({ data }: { data: ICategory[] }) => {
                   key={href}
                   href={href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-black",
-                    route.active ? "text-black" : "text-neutral-500"
+                    "text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-300 transition-colors font-medium",
+                    route.active && "text-gray-900 dark:text-gray-300"
                   )}
                 >
                   {label}
@@ -48,12 +48,12 @@ const MobileNavbar = ({ data }: { data: ICategory[] }) => {
               );
             })}
           </nav>
-          <div className="mt-auto">
-            <div className="flex justify-start">
-              <UserButton />
-            </div>
+          <div className="mt-auto flex justify-between">
             <div>
               <ModeToggle />
+            </div>
+            <div>
+              <UserButton />
             </div>
           </div>
         </div>
