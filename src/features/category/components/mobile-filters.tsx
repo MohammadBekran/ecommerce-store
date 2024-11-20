@@ -35,7 +35,7 @@ const MobileFilters = ({ sizes, colors }: IMobileFiltersProps) => {
       >
         <div className="fixed inset-0 bg-black bg-opacity-25" />
         <div className="fixed inset-0 z-40 flex">
-          <DialogPanel className="relative ml-auto flex size-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+          <DialogPanel className="relative ml-auto flex size-full max-w-xs flex-col overflow-y-auto  py-4 pb-6 shadow-xl">
             <div className="flex items-center justify-end px-4">
               <Button
                 size="icon"

@@ -29,13 +29,16 @@ const ProductItem = ({ data }: { data: IProduct }) => {
     cart.addItem(data);
   };
 
+  const productItemActionButtonClassNames =
+    "rounded-full transition-transform hover:scale-125 dark:bg-zinc-800 hover:dark:bg-zinc-900";
+
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
   };
 
   return (
     <div
-      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
+      className=" group cursor-pointer rounded-xl border p-3 space-y-4"
       onClick={handleClick}
     >
       <div className="aspect-square rounded-xl bg-gray-100 relative">
@@ -49,17 +52,20 @@ const ProductItem = ({ data }: { data: IProduct }) => {
           <div className="flex gap-x-6 justify-center">
             <Button
               size="icon"
-              className="rounded-full bg-white hover:bg-white"
+              className={productItemActionButtonClassNames}
               onClick={onPreview}
             >
-              <Expand size={20} className="text-gray-600" />
+              <Expand size={20} className="text-gray-600 dark:text-white" />
             </Button>
             <Button
               size="icon"
-              className="rounded-full bg-white hover:bg-white"
+              className={productItemActionButtonClassNames}
               onClick={onAddToCart}
             >
-              <ShoppingCart size={20} className="text-gray-600" />
+              <ShoppingCart
+                size={20}
+                className="text-gray-600 dark:text-white"
+              />
             </Button>
           </div>
         </div>

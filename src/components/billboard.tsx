@@ -8,7 +8,7 @@ const Billboard = ({ data }: { data: IBillboard | undefined }) => {
         style={{ background: `url(${data?.imageUrl})` }}
       >
         <div className="size-full flex flex-col justify-center items-center text-center gap-y-8">
-          <div className="max-w-xs fond-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl">
+          <div className="max-w-xs fond-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl dark:text-black">
             {data?.label}
           </div>
         </div>

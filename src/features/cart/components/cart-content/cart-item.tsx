@@ -15,7 +15,7 @@ const CartItem = ({ data }: { data: IProduct }) => {
   };
 
   return (
-    <li className="flex py-6 border-b">
+    <li className="flex py-6 border-b last:border-none">
       <div className="relative size-24 overflow-hidden rounded-md sm:size-48">
         <Image
           fill
@@ -37,7 +37,9 @@ const CartItem = ({ data }: { data: IProduct }) => {
         </div>
         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
           <div className="flex justify-between">
-            <p className="text-lg font-semibold text-black">{data.name}</p>
+            <p className="text-lg font-semibold text-black dark:text-white">
+              {data.name}
+            </p>
           </div>
           <div className="mt-1 flex text-sm">
             <p className="text-gray-500">{data.color.name}</p>

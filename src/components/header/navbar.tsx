@@ -24,8 +24,8 @@ const Navbar = ({ data }: { data: ICategory[] }) => {
             key={href}
             href={href}
             className={cn(
-              "text-sm font-medium transition-colors hover:text-black",
-              route.active ? "text-black" : "text-neutral-500"
+              "text-sm font-medium transition-colors hover:text-black dark:hover:text-neutral-400",
+              route.active ? "text-black" : "text-neutral-400"
             )}
           >
             {label}

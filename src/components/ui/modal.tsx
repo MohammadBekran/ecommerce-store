@@ -40,13 +40,13 @@ const Modal = ({ open, onClose, classes, children }: IModalProps) => {
             >
               <DialogPanel
                 className={cn(
-                  "w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle",
+                  "w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle dark:bg-zinc-950",
                   classes?.dialogPanel ?? ""
                 )}
               >
                 <div
                   className={cn(
-                    "relative w-full overflow-hidden flex items-center px-4 pb-8 pt-14 shadow-2xl bg-white sm:px-6 sm:pt-8 md:p-6 lg:p-8",
+                    "relative w-full overflow-hidden flex items-center px-4 pb-8 pt-14 shadow-2xl  sm:px-6 sm:pt-8 md:p-6 lg:p-8",
                     classes?.container ?? ""
                   )}
                 >

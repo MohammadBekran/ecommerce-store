@@ -14,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn, renderCategoryRoutes } from "@/core/utils";
+import ModeToggle from "./mode-toggle";
 
 const MobileNavbar = ({ data }: { data: ICategory[] }) => {
   const pathname = usePathname();
@@ -50,6 +51,9 @@ const MobileNavbar = ({ data }: { data: ICategory[] }) => {
           <div className="mt-auto">
             <div className="flex justify-start">
               <UserButton />
+            </div>
+            <div>
+              <ModeToggle />
             </div>
           </div>
         </div>

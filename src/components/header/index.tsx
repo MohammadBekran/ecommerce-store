@@ -3,9 +3,10 @@ import Link from "next/link";
 import { getCategories } from "@/features/category/core/services/api";
 
 import CartButton from "@/components/header/cart-button";
+import MobileNavbar from "@/components/header/mobile-navbar";
+import ModeToggle from "@/components/header/mode-toggle";
 import Navbar from "@/components/header/navbar";
 import MainContainer from "@/components/partials/containers/main-container";
-import MobileNavbar from "@/components/header/mobile-navbar";
 
 const Header = async () => {
   const categories = await getCategories();
@@ -25,7 +26,8 @@ const Header = async () => {
               <MobileNavbar data={categories ?? []} />
             </div>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex lg:gap-x-3">
+            <ModeToggle />
             <CartButton />
           </div>
         </div>

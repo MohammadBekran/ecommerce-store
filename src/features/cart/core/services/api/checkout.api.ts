@@ -1,7 +1,6 @@
 import type { TOrderData } from "@/features/cart/core/types";
 
 import Http from "@/core/services/interceptor";
-import { toast } from "@/core/utils";
 
 const checkoutAPI = async (
   storeId: string,
@@ -14,8 +13,8 @@ const checkoutAPI = async (
     onSuccess();
 
     return response.data;
-  } catch {
-    toast.error("Something went wrong.");
+  } catch (error) {
+    console.error("Something went wrong:", error);
   }
 };
 

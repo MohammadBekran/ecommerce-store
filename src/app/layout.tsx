@@ -5,7 +5,9 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import ClerkProvider from "@/components/partials/providers/clerk-provider";
 import ModalProvider from "@/components/partials/providers/modal-provider";
+import ThemeProvider from "@/components/partials/providers/theme-provider";
 import ToastProvider from "@/components/partials/providers/toast-provider";
+import { cn } from "@/core/utils";
 
 import "./globals.css";
 
@@ -26,13 +28,20 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`${urbanist.className} antialiased`}>
-          <ModalProvider />
-          <ToastProvider />
-          <Header />
-          {children}
-          <Footer />
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn("antialiased", urbanist.className)}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ModalProvider />
+            <ToastProvider />
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
