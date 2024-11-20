@@ -29,7 +29,7 @@ const CartItem = ({ data }: { data: IProduct }) => {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full shadow-xl"
+            className="rounded-full shadow-xl dark:shadow-md"
             onClick={onRemoveProduct}
           >
             <X size={15} />
