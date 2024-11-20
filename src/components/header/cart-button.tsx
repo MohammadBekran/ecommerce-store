@@ -12,7 +12,7 @@ const CartButton = () => {
 
   return (
     <Button
-      className="flex items-center rounded-full bg-black dark:bg-transparent dark:border- px-4 py-2"
+      className="flex items-center rounded-full bg-black hover:dark:bg-accent dark:bg-transparent dark:border dark:border-input px-4 py-2"
       onClick={() => router.push("/cart")}
     >
       <ShoppingBag size={20} color="white" />

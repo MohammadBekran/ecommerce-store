@@ -30,7 +30,7 @@ const ProductItem = ({ data }: { data: IProduct }) => {
   };
 
   const productItemActionButtonClassNames =
-    "rounded-full transition-transform hover:scale-125 dark:bg-zinc-800 hover:dark:bg-zinc-900";
+    "rounded-full transition-transform hover:scale-125 bg-white dark:bg-zinc-800 hover:bg-white hover:dark:bg-zinc-900";
 
   const handleClick = () => {
     router.push(`/product/${data?.id}`);

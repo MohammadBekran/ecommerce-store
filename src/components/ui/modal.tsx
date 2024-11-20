@@ -40,7 +40,7 @@ const Modal = ({ open, onClose, classes, children }: IModalProps) => {
             >
               <DialogPanel
                 className={cn(
-                  "w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle dark:bg-zinc-950",
+                  "w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle bg-white dark:bg-zinc-950",
                   classes?.dialogPanel ?? ""
                 )}
               >
@@ -54,7 +54,7 @@ const Modal = ({ open, onClose, classes, children }: IModalProps) => {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="rounded-full shadow-xl"
+                      className="rounded-full shadow-xl dark:shadow-md"
                       onClick={onClose}
                     >
                       <X size={15} />
