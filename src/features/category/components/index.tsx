@@ -19,7 +19,7 @@ interface ICategoryProps {
 
 const Category = ({ products, colors, sizes, category }: ICategoryProps) => {
   return (
-    <div className="bg-white">
+    <div className="">
       <MainContainer>
         <Billboard data={category?.billboard} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">

@@ -33,9 +33,20 @@ const CheckoutModal = ({
   const [isPending, startTransition] = useTransition();
   const { user } = useUser();
   const removeAllItems = useCart((state) => state.removeAll);
-  const { control, handleSubmit } = useForm<TCheckoutFormData>({
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid, errors },
+  } = useForm<TCheckoutFormData>({
     resolver: zodResolver(checkoutFormSchema),
   });
+
+  const disabledCondition = !isValid || isPending;
+
+  if (errors) {
+    if (errors.phone) toast.error(errors.phone.message);
+    if (errors.address) toast.error(errors.address.message);
+  }
 
   const onSubmit = (data: TCheckoutFormData) => {
     if (!user) redirect("/sign-in");
@@ -92,10 +103,14 @@ const CheckoutModal = ({
               />
             </div>
             <div className="flex justify-end gap-x-3 w-full">
-              <Button variant="ghost" disabled={isPending} onClick={onClose}>
+              <Button
+                variant="ghost"
+                disabled={disabledCondition}
+                onClick={onClose}
+              >
                 Cancel
               </Button>
-              <Button type="submit" disabled={isPending}>
+              <Button type="submit" disabled={disabledCondition}>
                 Save Changes
               </Button>
             </div>

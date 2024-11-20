@@ -5,18 +5,14 @@ import { usePathname } from "next/navigation";
 
 import type ICategory from "@/features/category/core/types";
 
-import { cn } from "@/core/utils";
+import { cn, renderCategoryRoutes } from "@/core/utils";
 
 export const revalidate = 0;
 
 const Navbar = ({ data }: { data: ICategory[] }) => {
   const pathname = usePathname();
 
-  const routes = data?.map((route) => ({
-    href: `/category/${route.id}`,
-    label: route.name,
-    active: pathname === `/category/${route.id}`,
-  }));
+  const routes = renderCategoryRoutes(data, pathname);
 
   return (
     <nav className="flex items-center space-x-4 mx-6 lg:space-x-6">
@@ -28,8 +24,8 @@ const Navbar = ({ data }: { data: ICategory[] }) => {
             key={href}
             href={href}
             className={cn(
-              "text-sm font-medium transition-colors hover:text-black",
-              route.active ? "text-black" : "text-neutral-500"
+              "text-sm font-medium transition-colors hover:text-black dark:hover:text-neutral-400",
+              route.active ? "text-black" : "text-neutral-400"
             )}
           >
             {label}

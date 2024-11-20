@@ -3,7 +3,6 @@ import qs from "query-string";
 import type IProduct from "@/features/product/core/types";
 
 import Http from "@/core/services/interceptor";
-import { toast } from "@/core/utils";
 
 interface IQuery {
   categoryId?: string;
@@ -28,8 +27,8 @@ const getProducts = async (query: IQuery) => {
     const response = await Http.get<IProduct[]>(url);
 
     return response.data;
-  } catch {
-    toast.error("Something went wrong.");
+  } catch (error) {
+    console.error("Something went wrong:", error);
   }
 };
 export default getProducts;

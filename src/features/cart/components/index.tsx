@@ -4,7 +4,7 @@ import MainContainer from "@/components/partials/containers/main-container";
 
 const Cart = () => {
   return (
-    <div className="bg-white">
+    <div>
       <MainContainer>
         <CartContent />
       </MainContainer>
