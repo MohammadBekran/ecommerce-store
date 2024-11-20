@@ -9,7 +9,7 @@ const CartPage = () => {
 };
 
 export const metadata: Metadata = {
-  title: "Cart page",
+  title: "Cart",
   description:
     "On this page, see the products you added to the shopping cart and pay if you want",
 };
